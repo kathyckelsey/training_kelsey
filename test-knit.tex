@@ -1,0 +1,621 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Kelsey\_Data\_Cleaning},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Kelsey\_Data\_Cleaning}
+\author{}
+\date{\vspace{-2.5em}2023-03-01}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catch\_original }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+``select'' command from dplyr package selects \emph{columns}; the filter
+command filters rows
+
+\hypertarget{clean-data}{%
+\subsection{Clean Data}\label{clean-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the All and notesRegCode columns from teh catch\_original dataframe}
+\NormalTok{catch\_data }\OtherTok{\textless{}{-}}\NormalTok{ catch\_original }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)}
+
+\FunctionTok{head}\NormalTok{(catch\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Region Year Chinook Sockeye Coho Pink Chum
+## 1    SSE 1886       0       5    0    0    0
+## 2    SSE 1887       0     155    0    0    0
+## 3    SSE 1888       0     224   16    0    0
+## 4    SSE 1889       0     182   11   92    0
+## 5    SSE 1890       0     251   42    0    0
+## 6    SSE 1891       0     274   24    0    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(catch\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 1,708
+## Columns: 7
+## $ Region  <chr> "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE",~
+## $ Year    <int> 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 18~
+## $ Chinook <chr> "0", "0", "0", "0", "0", "0", "0", "0", "0", "3", "4", "5", "9~
+## $ Sockeye <int> 5, 155, 224, 182, 251, 274, 207, 189, 253, 408, 989, 791, 708,~
+## $ Coho    <int> 0, 0, 16, 11, 42, 24, 11, 1, 5, 8, 192, 161, 132, 139, 84, 107~
+## $ Pink    <int> 0, 0, 0, 92, 0, 0, 8, 187, 529, 606, 996, 2218, 673, 1545, 204~
+## $ Chum    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 2, 0, 0, 0, 102, 343~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#glimpse shows us that \textquotesingle{}chinook\textquotesingle{} data are characters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Mutate chinook class from character to numeric}
+\NormalTok{catch\_clean }\OtherTok{\textless{}{-}}\NormalTok{ catch\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Chinook =} \FunctionTok{as.numeric}\NormalTok{(Chinook))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `mutate()`.
+## i In argument: `Chinook = as.numeric(Chinook)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# search for the na value}
+\NormalTok{i }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(catch\_clean}\SpecialCharTok{$}\NormalTok{Chinook))}
+\NormalTok{i}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 401
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#when I call "i", it tells me the NA is on row 401}
+\CommentTok{\#Turns out that the "I" should have been a "1"}
+
+\NormalTok{catch\_data[i, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Region Year Chinook Sockeye Coho Pink Chum
+## 401    GSE 1955       I      66    0    0    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catch\_clean }\OtherTok{\textless{}{-}}\NormalTok{ catch\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Chinook =} \FunctionTok{if\_else}\NormalTok{(Chinook }\SpecialCharTok{==} \StringTok{"I"}\NormalTok{, }\StringTok{"1"}\NormalTok{, Chinook)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Chinook =} \FunctionTok{as.integer}\NormalTok{(Chinook))}
+\CommentTok{\#for this purpose, "as.integer" and "as.numeric" do the same thing {-} but not if the numeric data are not integers}
+
+\FunctionTok{glimpse}\NormalTok{(catch\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 1,708
+## Columns: 7
+## $ Region  <chr> "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE", "SSE",~
+## $ Year    <int> 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 18~
+## $ Chinook <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 5, 9, 12, 0, 3, 4, 0, 4, 9, 3~
+## $ Sockeye <int> 5, 155, 224, 182, 251, 274, 207, 189, 253, 408, 989, 791, 708,~
+## $ Coho    <int> 0, 0, 16, 11, 42, 24, 11, 1, 5, 8, 192, 161, 132, 139, 84, 107~
+## $ Pink    <int> 0, 0, 0, 92, 0, 0, 8, 187, 529, 606, 996, 2218, 673, 1545, 204~
+## $ Chum    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 2, 0, 0, 0, 102, 343~
+\end{verbatim}
+
+\hypertarget{change-shape-fo-data-using-pivot-longer-and-pivot-wider}{%
+\subsection{Change shape fo data using pivot longer and pivot
+wider}\label{change-shape-fo-data-using-pivot-longer-and-pivot-wider}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# pivot longer practice}
+\NormalTok{catch\_long }\OtherTok{\textless{}{-}}\NormalTok{ catch\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Region, Year), }\AttributeTok{names\_to =} \StringTok{"species"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"catch"}\NormalTok{)}
+\NormalTok{catch\_long}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 8,540 x 4
+##    Region  Year species catch
+##    <chr>  <int> <chr>   <int>
+##  1 SSE     1886 Chinook     0
+##  2 SSE     1886 Sockeye     5
+##  3 SSE     1886 Coho        0
+##  4 SSE     1886 Pink        0
+##  5 SSE     1886 Chum        0
+##  6 SSE     1887 Chinook     0
+##  7 SSE     1887 Sockeye   155
+##  8 SSE     1887 Coho        0
+##  9 SSE     1887 Pink        0
+## 10 SSE     1887 Chum        0
+## # ... with 8,530 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# pivot wider practice}
+\NormalTok{catch\_wide }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ species, }\AttributeTok{values\_from =}\NormalTok{ catch)}
+
+\FunctionTok{head}\NormalTok{(catch\_wide)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 7
+##   Region  Year Chinook Sockeye  Coho  Pink  Chum
+##   <chr>  <int>   <int>   <int> <int> <int> <int>
+## 1 SSE     1886       0       5     0     0     0
+## 2 SSE     1887       0     155     0     0     0
+## 3 SSE     1888       0     224    16     0     0
+## 4 SSE     1889       0     182    11    92     0
+## 5 SSE     1890       0     251    42     0     0
+## 6 SSE     1891       0     274    24     0     0
+\end{verbatim}
+
+\hypertarget{renaming-columns}{%
+\subsection{Renaming columns}\label{renaming-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catch\_long }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{catch\_thousands =}\NormalTok{ catch)}
+
+\FunctionTok{head}\NormalTok{(catch\_long)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   Region  Year species catch_thousands
+##   <chr>  <int> <chr>             <int>
+## 1 SSE     1886 Chinook               0
+## 2 SSE     1886 Sockeye               5
+## 3 SSE     1886 Coho                  0
+## 4 SSE     1886 Pink                  0
+## 5 SSE     1886 Chum                  0
+## 6 SSE     1887 Chinook               0
+\end{verbatim}
+
+\hypertarget{add-columns-with-mutate-function}{%
+\subsection{Add columns with mutate
+function}\label{add-columns-with-mutate-function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catch\_long }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{catch =}\NormalTok{ catch\_thousands }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(catch\_long)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   Region  Year species catch_thousands catch
+##   <chr>  <int> <chr>             <int> <dbl>
+## 1 SSE     1886 Chinook               0     0
+## 2 SSE     1886 Sockeye               5  5000
+## 3 SSE     1886 Coho                  0     0
+## 4 SSE     1886 Pink                  0     0
+## 5 SSE     1886 Chum                  0     0
+## 6 SSE     1887 Chinook               0     0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#remove catch\_thousands}
+\NormalTok{catch\_long }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{catch =}\NormalTok{ catch\_thousands }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{catch\_thousands)}
+
+\FunctionTok{head}\NormalTok{(catch\_long)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   Region  Year species catch
+##   <chr>  <int> <chr>   <dbl>
+## 1 SSE     1886 Chinook     0
+## 2 SSE     1886 Sockeye  5000
+## 3 SSE     1886 Coho        0
+## 4 SSE     1886 Pink        0
+## 5 SSE     1886 Chum        0
+## 6 SSE     1887 Chinook     0
+\end{verbatim}
+
+\hypertarget{practice-using-group_by-an-summarize}{%
+\subsection{Practice using group\_by an
+summarize}\label{practice-using-group_by-an-summarize}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_region }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{((Region)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{catch\_mean =} \FunctionTok{mean}\NormalTok{(catch))}
+
+\FunctionTok{head}\NormalTok{(mean\_region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   `(Region)` catch_mean
+##   <chr>           <dbl>
+## 1 ALU            40384.
+## 2 BER            16373.
+## 3 BRB          2709796.
+## 4 CHG           315487.
+## 5 CKI           683571.
+## 6 COP           179223.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# summarize count by region (number of observations by region)}
+\NormalTok{n\_region }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{number\_of\_observations =} \FunctionTok{n}\NormalTok{())}
+
+\FunctionTok{head}\NormalTok{(n\_region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   Region number_of_observations
+##   <chr>                   <int>
+## 1 ALU                       435
+## 2 BER                       510
+## 3 BRB                       570
+## 4 CHG                       550
+## 5 CKI                       525
+## 6 COP                       470
+\end{verbatim}
+
+\hypertarget{lesson-on-filtering}{%
+\subsection{Lesson on filtering}\label{lesson-on-filtering}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ALU\_catch }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Region }\SpecialCharTok{==} \StringTok{"ALU"}\NormalTok{)}
+\CommentTok{\# for two observations (filter(Region \%n\% c("ALU", "SSE"))}
+\CommentTok{\# \%n\% is the "in" operator}
+
+\FunctionTok{head}\NormalTok{(ALU\_catch)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   Region  Year species catch
+##   <chr>  <int> <chr>   <dbl>
+## 1 ALU     1911 Chinook     0
+## 2 ALU     1911 Sockeye  9000
+## 3 ALU     1911 Coho        0
+## 4 ALU     1911 Pink        0
+## 5 ALU     1911 Chum        0
+## 6 ALU     1912 Chinook     0
+\end{verbatim}
+
+\hypertarget{lesson-on-arranging-some-rows}{%
+\subsection{Lesson on arranging some
+rows}\label{lesson-on-arranging-some-rows}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_region }\OtherTok{\textless{}{-}}\NormalTok{ catch\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Region) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_catch =} \FunctionTok{mean}\NormalTok{(catch)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(mean\_catch)}
+
+\FunctionTok{head}\NormalTok{(mean\_region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   Region mean_catch
+##   <chr>       <dbl>
+## 1 BER        16373.
+## 2 KTZ        18836.
+## 3 ALU        40384.
+## 4 NRS        51503.
+## 5 KSK        67642.
+## 6 YUK        68646.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# to put data in decending order, add "{-}"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{practicing-joins}{%
+\section{Practicing joins}\label{practicing-joins}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{region\_defs }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{select}\NormalTok{(code, mgmtArea)}
+
+\FunctionTok{head}\NormalTok{(region\_defs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      code                                  mgmtArea
+## 1     GSE              Unallocated Southeast Alaska
+## 2     NSE                 Northern Southeast Alaska
+## 3     SSE                 Southern Southeast Alaska
+## 4     YAK                                   Yakutat
+## 5 PWSmgmt      Prince William Sound Management Area
+## 6     BER Bering River Subarea Copper River Subarea
+\end{verbatim}
+
+\hypertarget{join-our-data}{%
+\subsection{Join our data}\label{join-our-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catch\_joined }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(catch\_long, region\_defs, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"Region"} \OtherTok{=} \StringTok{"code"}\NormalTok{))}
+
+\FunctionTok{head}\NormalTok{(catch\_joined)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   Region  Year species catch mgmtArea                 
+##   <chr>  <int> <chr>   <dbl> <chr>                    
+## 1 SSE     1886 Chinook     0 Southern Southeast Alaska
+## 2 SSE     1886 Sockeye  5000 Southern Southeast Alaska
+## 3 SSE     1886 Coho        0 Southern Southeast Alaska
+## 4 SSE     1886 Pink        0 Southern Southeast Alaska
+## 5 SSE     1886 Chum        0 Southern Southeast Alaska
+## 6 SSE     1887 Chinook     0 Southern Southeast Alaska
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Any Region "SSE" also gets "Southern Southeast Alaska"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{region\_defs }\OtherTok{\textless{}{-}}\NormalTok{ region\_defs }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Region =}\NormalTok{ code, }\AttributeTok{Region\_Name =}\NormalTok{ mgmtArea)}
+
+\NormalTok{catch\_joined }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(catch\_long, region\_defs, }\AttributeTok{by =} \StringTok{"Region"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(catch\_joined)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   Region  Year species catch Region_Name              
+##   <chr>  <int> <chr>   <dbl> <chr>                    
+## 1 SSE     1886 Chinook     0 Southern Southeast Alaska
+## 2 SSE     1886 Sockeye  5000 Southern Southeast Alaska
+## 3 SSE     1886 Coho        0 Southern Southeast Alaska
+## 4 SSE     1886 Pink        0 Southern Southeast Alaska
+## 5 SSE     1886 Chum        0 Southern Southeast Alaska
+## 6 SSE     1887 Chinook     0 Southern Southeast Alaska
+\end{verbatim}
+
+\hypertarget{practice-with-separate-and-unite}{%
+\subsection{Practice with separate and
+unite}\label{practice-with-separate-and-unite}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sites\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{site =} \FunctionTok{c}\NormalTok{(}\StringTok{"HAW{-}101"}\NormalTok{,}
+                                \StringTok{"HAW{-}103"}\NormalTok{,}
+                                \StringTok{"OAH{-}320"}\NormalTok{,}
+                                \StringTok{"OAH{-}219"}\NormalTok{,}
+                                \StringTok{"MAI{-}039"}\NormalTok{))}
+
+\NormalTok{sites\_df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{separate}\NormalTok{(site, }\FunctionTok{c}\NormalTok{(}\StringTok{"island"}\NormalTok{, }\StringTok{"site\_number"}\NormalTok{), }\StringTok{"{-}"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   island site_number
+## 1    HAW         101
+## 2    HAW         103
+## 3    OAH         320
+## 4    OAH         219
+## 5    MAI         039
+\end{verbatim}
+
+\hypertarget{section}{%
+\section{}\label{section}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{year =} \FunctionTok{c}\NormalTok{(}\StringTok{"1930"}\NormalTok{,}
+                                \StringTok{"1930"}\NormalTok{,}
+                                \StringTok{"1930"}\NormalTok{),}
+                       \AttributeTok{month =} \FunctionTok{c}\NormalTok{(}\StringTok{"12"}\NormalTok{,}
+                                \StringTok{"12"}\NormalTok{,}
+                                \StringTok{"12"}\NormalTok{),}
+                       \AttributeTok{day =} \FunctionTok{c}\NormalTok{(}\StringTok{"14"}\NormalTok{,}
+                               \StringTok{"15"}\NormalTok{,}
+                               \StringTok{"16"}\NormalTok{))}
+
+\NormalTok{dates\_df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{unite}\NormalTok{(date, year, month, day, }\AttributeTok{sep =} \StringTok{"{-}"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         date
+## 1 1930-12-14
+## 2 1930-12-15
+## 3 1930-12-16
+\end{verbatim}
+
+\end{document}
