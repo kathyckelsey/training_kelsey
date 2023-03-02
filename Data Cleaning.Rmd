@@ -1,0 +1,195 @@
+---
+title: "Kelsey_Data_Cleaning"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+date: "2023-03-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(readr)
+```
+
+
+```{r}
+catch_original <- read.csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1")
+```
+
+“select” command from dplyr package selects *columns*; the filter command filters rows
+
+## Clean Data
+
+```{r}
+# Remove the All and notesRegCode columns from teh catch_original dataframe
+catch_data <- catch_original %>%
+  select(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)
+
+head(catch_data)
+glimpse(catch_data)
+#glimpse shows us that 'chinook' data are characters
+```
+
+```{r}
+#Mutate chinook class from character to numeric
+catch_clean <- catch_data %>%
+  mutate(Chinook = as.numeric(Chinook))
+
+# search for the na value
+i <- which(is.na(catch_clean$Chinook))
+i
+#when I call "i", it tells me the NA is on row 401
+#Turns out that the "I" should have been a "1"
+
+catch_data[i, ]
+
+catch_clean <- catch_data %>%
+  mutate(Chinook = if_else(Chinook == "I", "1", Chinook)) %>%
+  mutate(Chinook = as.integer(Chinook))
+#for this purpose, "as.integer" and "as.numeric" do the same thing - but not if the numeric data are not integers
+
+glimpse(catch_clean)
+```
+
+## Change shape fo data using pivot longer and pivot wider
+```{r}
+# pivot longer practice
+catch_long <- catch_clean %>%
+  pivot_longer(cols = -c(Region, Year), names_to = "species", values_to = "catch")
+catch_long
+
+# pivot wider practice
+catch_wide <- catch_long %>% 
+  pivot_wider(names_from = species, values_from = catch)
+
+head(catch_wide)
+```
+
+
+## Renaming columns
+```{r}
+catch_long <- catch_long %>% 
+  rename(catch_thousands = catch)
+
+head(catch_long)
+```
+
+
+## Add columns with mutate function
+```{r}
+catch_long <- catch_long %>% 
+  mutate(catch = catch_thousands * 1000)
+
+head(catch_long)
+
+#remove catch_thousands
+catch_long <- catch_long %>%
+  mutate(catch = catch_thousands * 1000) %>%
+  select(-catch_thousands)
+
+head(catch_long)
+```
+
+## Practice using group_by an summarize
+```{r}
+mean_region <- catch_long %>%
+  group_by((Region)) %>%
+  summarize(catch_mean = mean(catch))
+
+head(mean_region)
+
+# summarize count by region (number of observations by region)
+n_region <- catch_long %>% 
+  group_by(Region) %>%
+  summarize(number_of_observations = n())
+
+head(n_region)
+```
+
+## Lesson on filtering
+```{r}
+ALU_catch <- catch_long %>%
+  filter(Region == "ALU")
+# for two observations (filter(Region %n% c("ALU", "SSE"))
+# %n% is the "in" operator
+
+head(ALU_catch)
+```
+
+## Lesson on arranging some rows
+```{r}
+mean_region <- catch_long %>% 
+  group_by(Region) %>% 
+  summarise(mean_catch = mean(catch)) %>% 
+  arrange(mean_catch)
+
+head(mean_region)
+# to put data in decending order, add "-"
+```
+
+
+# Practicing joins
+```{r}
+region_defs <- read.csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1") %>% 
+    select(code, mgmtArea)
+
+head(region_defs)
+```
+
+
+## Join our data
+```{r}
+catch_joined <- left_join(catch_long, region_defs, by = c("Region" = "code"))
+
+head(catch_joined)
+#Any Region "SSE" also gets "Southern Southeast Alaska"
+
+```
+
+
+```{r}
+region_defs <- region_defs %>%
+  rename(Region = code, Region_Name = mgmtArea)
+
+catch_joined <- left_join(catch_long, region_defs, by = "Region")
+
+head(catch_joined)
+```
+
+
+## Practice with separate and unite
+```{r}
+sites_df <- data.frame(site = c("HAW-101",
+                                "HAW-103",
+                                "OAH-320",
+                                "OAH-219",
+                                "MAI-039"))
+
+sites_df %>% 
+  separate(site, c("island", "site_number"), "-")
+
+```
+
+#
+```{r}
+dates_df <- data.frame(year = c("1930",
+                                "1930",
+                                "1930"),
+                       month = c("12",
+                                "12",
+                                "12"),
+                       day = c("14",
+                               "15",
+                               "16"))
+
+dates_df %>% 
+  unite(date, year, month, day, sep = "-")
+```
+
